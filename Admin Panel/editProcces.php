@@ -8,6 +8,13 @@
         $description = $_GET["description"];
         $picture = $_GET["picture"];
 
+        $name = htmlspecialchars( $name, ENT_QUOTES );
+        $price = htmlspecialchars($price, ENT_QUOTES);
+        $type = htmlspecialchars($type, ENT_QUOTES);
+        $pieces = htmlspecialchars($pieces, ENT_QUOTES);
+        $description = htmlspecialchars($description, ENT_QUOTES);
+        $picture = htmlspecialchars($picture, ENT_QUOTES);
+
         $servername = "localhost";
         $dbusername = "root";
         $database = "cakeshopdb";
