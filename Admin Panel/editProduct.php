@@ -45,8 +45,8 @@
         <textarea rows="4" cols="50" id="description" name="description" form="form"><?php echo $data[0]['Description']?></textarea><br>
         
         <label for="name">Снимка:</label><br>
-        <img src="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>" alt="picture" width="400px" height="300px"><br>
-        <input type="file" accept="image/*" name="picture" value="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>"><br>
+        <img src="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>" alt="picture" width="400px" height="300px" id="picture"><br>
+        <input type="file" id="file" accept="image/*" name="picture" value="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>"><br>
 
         <input type="submit" value="Редактиране">
     </form>
@@ -55,5 +55,14 @@
             echo "Connection failed: " . $e->getMessage();
         }
     ?>
+    <script type="text/javascript">
+        const file = document.querySelector("#file");
+        file.addEventListener("change", function(e){
+            const file = e.target.files[0]; 
+            const url = URL.createObjectURL(file);
+            document.querySelector("#picture").src = url;
+
+        });
+    </script>
 </body>
 </html>
