@@ -51,7 +51,7 @@
               <td><?php echo $value['Type']; ?></td>
               <td><?php echo $value['Pieces']; ?></td>
               <td><?php echo $value['Description']; ?></td>
-              <td><?php echo $value['Picture_Name']; ?></td>
+              <td><img src="../Pictures/Products/<?php echo $value['Picture_Name']; ?>" alt="picture" width="200px" height="100px"></td>
               <td><a href="deleteProduct.php?id=<?php echo $value['Id']; ?>">Delete</a></td>
               <td><a href="editProduct.php?id=<?php echo $value['Id']; ?>">Edit</a></td>
             </tr>

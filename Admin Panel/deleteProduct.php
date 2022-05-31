@@ -11,6 +11,19 @@
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$database", $dbusername, $dbPassword);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //Delete Picture
+            $sql = "SELECT Picture_Name From product Where Id = ?";
+
+            $stmt= $conn->prepare($sql);
+            $stmt->execute([$id]);
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $data = $stmt->fetchAll();
+
+            $oldimgpath = "../Pictures/Products/".$data[0]['Picture_Name'];
+            unlink( $oldimgpath );
+
+            //Delete Product
             $sql = "DELETE FROM product WHERE id = ?";
             $stmt= $conn->prepare($sql);
 

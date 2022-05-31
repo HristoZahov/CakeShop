@@ -8,7 +8,10 @@
 </head>
 <body>
     <?php
+        session_start();
+
         $id = $_GET['id'];
+        $_SESSION['id'] = $id;
 
         $id = htmlspecialchars( $id, ENT_QUOTES );
         
@@ -28,7 +31,18 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $data = $stmt->fetchAll();
     ?>
-    <form action="editProcces.php" id="form" method="get">
+    <?php
+            if(isset($_SESSION['edit_error'])){
+                $error = $_SESSION['edit_error'];
+                foreach ($error as $key => $value) {
+                    ?>
+                    <p><?php echo $value; ?></p>
+                    <?php
+                }
+                unset($_SESSION['edit_error']);
+            }
+    ?>
+    <form action="editProcces.php" method="post" enctype="multipart/form-data">
         <label for="name">Име</label><br>
         <input type="text" name="name" id="name" value="<?php echo $data[0]['Name']?>"><br>
         
@@ -44,11 +58,12 @@
         <label for="description">Описание</label><br>
         <textarea rows="4" cols="50" id="description" name="description" form="form"><?php echo $data[0]['Description']?></textarea><br>
         
-        <label for="name">Снимка:</label><br>
-        <img src="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>" alt="picture" width="400px" height="300px" id="picture"><br>
-        <input type="file" id="file" accept="image/*" name="picture" value="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>"><br>
+        <label for="newPicture">Снимка:</label><br>
+        <img id="picture" src="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>" alt="picture" width="400px" height="300px"><br>
 
-        <input type="submit" value="Редактиране">
+        <input type="file" id="file" name="file" accept="image/*"><br>
+
+        <input type="submit" name="Редактиране">
     </form>
     <?php
         } catch(PDOException $e) {
