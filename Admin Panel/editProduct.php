@@ -42,7 +42,7 @@
                 unset($_SESSION['edit_error']);
             }
     ?>
-    <form action="editProcces.php" method="post" enctype="multipart/form-data">
+    <form id="form" action="editProcces.php" method="post" enctype="multipart/form-data">
         <label for="name">Име</label><br>
         <input type="text" name="name" id="name" value="<?php echo $data[0]['Name']?>"><br>
         
@@ -61,9 +61,9 @@
         <label for="newPicture">Снимка:</label><br>
         <img id="picture" src="../Pictures/Products/<?php echo $data[0]['Picture_Name']; ?>" alt="picture" width="400px" height="300px"><br>
 
-        <input type="file" id="file" name="file" accept="image/*"><br>
+        <input type="file" id="file" name="file" accept="image/*"><br><br>
 
-        <input type="submit" name="Редактиране">
+        <input type="submit" value="Редактиране">
     </form>
     <?php
         } catch(PDOException $e) {

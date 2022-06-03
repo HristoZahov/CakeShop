@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="CSS/Shop.css">
+</head>
+<body>
+    <ul>
+        <li><a href="Shop.html">Магазин</a></li>
+        <li><a href="Contacts.html">Контакти</a></li>
+    </ul>
+</body>
+<script type="text/javascript">
+    const links = document.getElementsByTagName('a');
+
+    for (let i = 0; i < links.length; i++) {
+        const element = links[i];
+        if(element.pathname == window.location.pathname){
+            element.classList.add('active');
+        }
+    }
+</script>
+</html>

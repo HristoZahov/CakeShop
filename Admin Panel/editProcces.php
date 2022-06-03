@@ -1,4 +1,8 @@
 <?php
+    include '../PHPUtilities/Connection.php';
+    include '../PHPUtilities/Errors.php';
+    include '../PHPUtilities/Pictures.php';
+    include '../PHPUtilities/Utilities.php';
     session_start();
 
     if($_POST){
@@ -17,79 +21,29 @@
         $pieces = htmlspecialchars($pieces, ENT_QUOTES);
         $description = htmlspecialchars($description, ENT_QUOTES);
 
-        $error = array();
-        if(empty($name)){
-            $error[] = "Името е задължително";
-        }
+        $error = editProductError($name, $price, $type, $pieces, $description);
 
-        if(empty($price)){
-            $error[] = "Цената е задължителна";
-        }else if(!preg_match("/[0-9]+.[0-9]{2,}/", $price)){
-            $error[] = "Невалидна цена";
-        }
-
-        if(empty($type)){
-            $error[] = "Типът е задължителен";
-        }
-
-        if(empty($pieces)){
-            $error[] = "Парчетата са задължителни";
-        }else if(!preg_match("/[0-9]+/", $pieces)){
-            $error[] = "Невалидно число";
-        }
-
-        if(empty($description)){
-            $description = null;
-        }
-    
         if(count($error) == 0){
-            $servername = "localhost";
-            $dbusername = "root";
-            $database = "cakeshopdb";
-            $dbPassword = "";
+            $conn = openConnection();
 
-            try {
-                $conn = new PDO("mysql:host=$servername;dbname=$database", $dbusername, $dbPassword);
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-                if($_FILES['file']){
-                    //Delete
-                    $sql = "SELECT Picture_Name From product Where Id = ?";
+            if(!empty($_FILES['file']['name'])){
+                deletePicture($id);
+                $image = $_FILES['file'];
 
-                    $stmt= $conn->prepare($sql);
-                    $stmt->execute([$id]);
+                addPicture($image);
+                editProductWithPicture($name,$price,$type,$pieces,$description,$image,$id);
+            }else{
+                editProductWithOutPicture($name,$price,$type,$pieces,$description,$id);
+            }
 
-                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                    $data = $stmt->fetchAll();
+            $conn = null;
 
-                    $oldimgpath = "../Pictures/Products/".$data[0]['Picture_Name'];
-                    unlink( $oldimgpath );
-
-                    //Add
-                    $image = $_FILES['file'];
-                    $picture = $image['name'];
-                    move_uploaded_file($image['tmp_name'],"../Pictures/Products/".$image['name']);
-                    $sql = "UPDATE product SET Name = ?, Price = ?, Type = ?, Pieces = ?, Description = ?, Picture_Name = ? WHERE id = ?";
-
-                    $stmt= $conn->prepare($sql);
-                    $stmt->execute([$name,$price,$type,$pieces,$description,$picture,$id]);
-                }else{
-                    $sql = "UPDATE product SET Name = ?, Price = ?, Type = ?, Pieces = ?, Description = ? WHERE id = ?";
-
-                    $stmt= $conn->prepare($sql);
-                    $stmt->execute([$name,$price,$type,$pieces,$description,$id]);
-                }
-
-                header("Location: showProducts.php");
-                die();  
-            } catch(PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
-            } 
+            header("Location: showProducts.php"); 
         }else{
             $_SESSION['edit_error'] = $error;
             header("Location: editProduct.php?id=$id");
         }
     }else{
-        header("Location: editProduct.php?id=$id");
+        header("Location: showProducts.php");
     }
 ?>
