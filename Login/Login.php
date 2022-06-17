@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log in</title>
   <link rel="stylesheet" href="../CSS/Register.css?<?php echo time(); ?>">
-</head>
+  </head>
 <body>
   <div class="conteiner">
     <form action="LoginCheck.php" method="post">
@@ -27,7 +27,7 @@
       }
       unset($_SESSION["login_errors"]);
       ?> 
-      <input type="text" id="email" name="email" placeholder="E-Mail адрес"><br>
+      <input type="text" id="email" name="email" placeholder="E-Mail адрес" value="<?php if(isset($_SESSION['login_data'])){echo $_SESSION['login_data'][0];unset($_SESSION['login_data']);} ?>"><br>
 
       <input type="password" id="password" name="password" placeholder="Парола"><br>
       <input type="submit" value="Вход">

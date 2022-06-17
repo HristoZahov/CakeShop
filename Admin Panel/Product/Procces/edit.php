@@ -1,8 +1,8 @@
 <?php
-    include '../PHPUtilities/Connection.php';
-    include '../PHPUtilities/Errors.php';
-    include '../PHPUtilities/Pictures.php';
-    include '../PHPUtilities/Utilities.php';
+    include_once '../../../PHPUtilities/Connection.php';
+    include_once '../../../PHPUtilities/Errors.php';
+    include_once '../../../PHPUtilities/Pictures.php';
+    include_once '../../../PHPUtilities/Product.php';
     session_start();
 
     if($_POST){
@@ -25,12 +25,13 @@
 
         if(count($error) == 0){
             $conn = openConnection();
+            $path = "../../../Pictures/Products/";
 
             if(!empty($_FILES['file']['name'])){
-                deletePicture($id);
+                deletePicture($id,$path);
                 $image = $_FILES['file'];
 
-                addPicture($image);
+                addPicture($image,$path);
                 editProductWithPicture($name,$price,$type,$pieces,$description,$image,$id);
             }else{
                 editProductWithOutPicture($name,$price,$type,$pieces,$description,$id);
@@ -38,12 +39,12 @@
 
             $conn = null;
 
-            header("Location: showProducts.php"); 
+            header("Location: ../ShowProducts.php"); 
         }else{
             $_SESSION['edit_error'] = $error;
-            header("Location: editProduct.php?id=$id");
+            header("Location: ../EditProduct.php?id=$id");
         }
     }else{
-        header("Location: showProducts.php");
+        header("Location: ../ShowProducts.php");
     }
 ?>

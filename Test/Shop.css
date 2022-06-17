@@ -1,0 +1,64 @@
+.contain{
+    /* box-sizing: border-box;
+    border: 2px solid red; */
+    display: inline-block;
+    border: 3px solid black;
+    margin: 1em;
+    /* border-radius: 20%;
+    padding: 4% 3% 2% 3%; */
+}
+
+.text-head{
+    color: white;
+    text-shadow: 4px 4px 7px black;
+    font-family: Brush Script MT;
+    font-size: 5em;
+}
+
+body{
+    background: url("../Pictures/Login/Shop Cake.jpg");
+    background-size: cover;
+}
+
+#about{
+    width: 6em; height: 4em;
+}
+
+.links{
+    width: 100%;
+    background-color: #f96a58;
+    padding: 0 3%;
+    display: inline-block;
+    position: sticky;
+    top: 0;
+}
+
+.button{
+    width: 4em;
+    border-radius: 20%;
+    background: none; 
+    border: none;
+    padding: 1em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.links a > img{
+    width: 100%;
+}
+
+.button > a,.button > a:link,.button > a:visited{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+}
+  
+.button:hover {
+    background-color: #d51023;
+}

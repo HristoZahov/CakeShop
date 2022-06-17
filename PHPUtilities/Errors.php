@@ -1,32 +1,32 @@
 <?php
-    function editPrductError($name, $price, $type, $pieces, $description){
-        $error = array();
+    function editProductError($name, $price, $type, $pieces, $description){
+        $errors = array();
 
         if(empty($name)){
-            $error[] = "Името е задължително";
+            $errors[] = "Името е задължително";
         }
 
         if(empty($price)){
-            $error[] = "Цената е задължителна";
+            $errors[] = "Цената е задължителна";
         }else if(!preg_match("/[0-9]+.[0-9]{2,}/", $price)){
-            $error[] = "Невалидна цена";
+            $errors[] = "Невалидна цена";
         }
 
         if(empty($type)){
-            $error[] = "Типът е задължителен";
+            $errors[] = "Типът е задължителен";
         }
 
         if(empty($pieces)){
-            $error[] = "Парчетата са задължителни";
+            $errors[] = "Парчетата са задължителни";
         }else if(!preg_match("/[0-9]+/", $pieces)){
-            $error[] = "Невалидно число";
+            $errors[] = "Невалидно число";
         }
 
         if(empty($description)){
             $description = null;
         }
 
-        return $error;
+        return $errors;
     }
 
     function registerError($first_name, $last_name, $email, $password, $psw_repeat){

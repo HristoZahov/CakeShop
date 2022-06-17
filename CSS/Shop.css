@@ -1,41 +1,93 @@
 body {
   margin:0;
+  background: url('../Pictures/Login/Shop Cake.jpg') no-repeat fixed center;
+  background-size: cover;
 }
 
-ul {
-  list-style-type: none;
-
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
-  background-color: #333;
-
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-li {
-  float: left;
-}
-
-.right{
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
+.products{
   text-align: center;
-  padding: 14px 16px;
+}
+
+.intro{
+  display: block;
+  font-size: 4em;
+  text-align: center;
+  font-style: oblique;
+  color: rgb(240, 240, 176);
+  font-weight: bolder;
+}
+
+a{
   text-decoration: none;
 }
 
-li a:hover:not(.active) {
-  background-color: #111;
+.conteiner{
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: content-box;
+  border: 0.4em solid lightslategray;
+  margin: 0 2em 2em 2em;
+  border-radius: 2em;
+  background-color: rgb(221, 167, 167);
 }
 
-.active {
-  background-color: #04AA6D;
+.conteiner img{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 1.8em 0px 1.8em 2em;
+  width: 55%;
+  height: auto;
+
+  border-radius: 1.25em;
 }
+
+.conteiner:hover{
+  border-color: brown;
+}
+
+.info{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1.8em;
+}
+
+.info h2{
+  color: brown;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 270%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.info p{
+  color: rgb(39, 28, 28);
+  font-size: 250%;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+@media only screen and (min-width: 18.75em) and (max-width: 48em) {
+  .conteiner{
+    display: inline-block;
+    vertical-align: middle;
+    width:40%;
+  }
+}
+
+@media only screen and (min-width: 48em) and (max-width: 65em) {
+  .conteiner{
+    display: inline-block;
+    vertical-align: middle;
+    width:40%;
+  }
+} 
+
+@media only screen and (min-width: 65em) {
+  .conteiner{
+    display: inline-block;
+    vertical-align: middle;
+    width:40%;
+  }
+} 

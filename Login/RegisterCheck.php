@@ -30,6 +30,7 @@ if($_POST){
             $data = $PDOStatement->fetchAll();
 
             if(empty($data)){
+                $password = password_hash($password, PASSWORD_DEFAULT);
                 $PDOStatement = $conn->prepare("INSERT INTO `user` (`FristName`, `LastName`, `Email`, `Password`) VALUES (?, ?, ?, ?);");
                 $PDOStatement->execute([$firts_name, $last_name, $email, $password]);
 
@@ -43,7 +44,7 @@ if($_POST){
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }finally{
-            $conn->close();
+            $conn = null;
         }
     }else{
         $_SESSION['data'] = $register_data;
@@ -51,5 +52,4 @@ if($_POST){
         header("location: Register.php");
     }
 }
-
 ?>
