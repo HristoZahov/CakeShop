@@ -17,30 +17,32 @@
         <th>Име</th>
         <th>Цена</th>
         <th>Тип</th>
+        <th>Грамаж</th>
         <th>Парчета</th>
         <th>Описание</th>
         <th>Снимка</th>
-        <th></th>
-        <th></th>
+        <th colspan=2></th>
       </tr>
     </thead>
     <tbody>
       <?php
         include '../../PHPUtilities/Connection.php';
         include '../../PHPUtilities/Product.php';
+        include '../../PHPUtilities/Utilities.php';
         $data = getAllProducts();
         foreach ($data as $key => $value) {
           ?>
           <tr>
-            <td class="col-1"><?php echo $value['Id']; ?></td>
-            <td class="col-2"><?php echo $value['Name']; ?></td>
-            <td class="col-3"><?php echo $value['Price']; ?> лв.</td>
-            <td class="col-4"><?php echo $value['Type']; ?></td>
-            <td class="col-5"><?php echo $value['Pieces']; ?></td>
-            <td class="col-6"><?php echo $value['Description']; ?></td>
-            <td class="col-7"><img src="../../Pictures/Products/<?php echo $value['Picture']; ?>" alt="picture" width="200px" height="100px"></td>
-            <td class="col-8"><a href="Procces/delete.php?id=<?php echo $value['Id']; ?>">Delete</a></td>
-            <td class="col-9"><a href="EditProduct.php?id=<?php echo $value['Id']; ?>">Edit</a></td>
+            <td><?php echo $value['Id']; ?></td>
+            <td><?php echo $value['Name']; ?></td>
+            <td><?php echo $value['Price']; ?> лв.</td>
+            <td><?php echo $value['Type']; ?></td>
+            <td><?php echo weightFilter($value['Weight']); if($value['Measurement'] == "kg"){ echo " кг";}else{ echo " гр";} ?></td>
+            <td><?php echo $value['Pieces']; ?></td>
+            <td><?php echo $value['Description']; ?></td>
+            <td><img src="../../Pictures/Products/<?php echo $value['Picture']; ?>" alt="picture" width="100%"></td>
+            <td><a href="Procces/delete.php?id=<?php echo $value['Id']; ?>">Delete</a></td>
+            <td><a href="EditProduct.php?id=<?php echo $value['Id']; ?>">Edit</a></td>
           </tr>
           <?php
         }

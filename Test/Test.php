@@ -9,30 +9,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <header><h1 class="text-center text-head">Delight</h1></header>
-    <div class="links">
-        <button class="button float-start"><a href=""><img src="../Pictures/Icons/Lines.png" alt=""></a></button>
-        <button class="button float-start"><a href=""><img src="../Pictures/Icons/Search.png" alt=""></a></button>
-        <button class="button float-end"><a href=""><img src="../Pictures/Icons/Profile.png" alt=""></a></button>
-        <button class="button float-end"><a href=""><img src="../Pictures/Icons/Cart.png" alt=""></a></button>
-        <button id="about" class="button float-end"><a href="">За нас</a></button>
-    </div>
-
+    <?php
+        include_once "../PHPUtilities/Product.php";
+        include_once "../PHPUtilities/Utilities.php";
+        require_once("header.html");
+    ?>
     <div class="d-flex justify-content-center flex-wrap">
         <?php
-        include_once "../PHPUtilities/Product.php";
-
         $products = getAllProducts();
 
         foreach ($products as $key => $value) {
             ?>
             <div class="contain">
-                <a style="text-decoration: none;color: white;" href="ProductInfo.php?id=<?php echo $value['id']; ?>">
-                    <img src="../Pictures/Products/<?php echo $value['Picture']; ?>" alt="cake picture" width="400px" height="300px">
+                <a style="text-decoration: none;color: white;" href="ProductInfo.php?id=<?php echo $value['Id'] ?>">
+                    <img src="../Pictures/Products/<?php echo $value['Picture']; ?>" alt="cake picture">
                     <div class="">
-                        <h3><?php echo $value['Name']; ?></h3>
-                        <p>Цена: <?php echo $value['Price']; ?> лв.</p>
-                        <!-- <p><?php //echo $value['Weight']; ?></p> -->
+                        <h3><?php echo $value['Name'] ?></h3>
+                        <p>Тип: <?php echo $value['Type'] ?></p>
+                        <?php if($value['Type'] == "Парче"){?>
+                        <p>Грамаж: <?php echo weightFilter($value['Weight']); if($value['Measurement'] == "kg"){ echo " кг";}else{ echo " гр";}?></p>
+                        <?php
+                        }else if($value['Type'] == "Торта"){
+                        ?>
+                        <p>Парчета: <?php echo $value['Pieces']?> бр.</p>
+                        <?php
+                        }
+                        ?>
+                        <p>Цена: <?php echo $value['Price'] ?> лв.</p>
                     </div>
                 </a>
             </div>

@@ -10,16 +10,20 @@ if($_POST){
     $price = $_POST["price"];
     $type = $_POST["type"];
     $pieces = $_POST["pieces"];
+    $weight = $_POST["weight"];
+    $measurement = $_POST["measurement"];
     $description = $_POST["description"];
 
     $name = htmlspecialchars( $name, ENT_QUOTES );
     $price = htmlspecialchars($price, ENT_QUOTES);
     $type = htmlspecialchars($type, ENT_QUOTES);
     $pieces = htmlspecialchars($pieces, ENT_QUOTES);
+    $weight = htmlspecialchars($weight, ENT_QUOTES);
+    $measurement = htmlspecialchars($measurement, ENT_QUOTES);
     $description = htmlspecialchars($description, ENT_QUOTES);
 
-    $data = array($name, $price, $type, $pieces, $description);
-    $error = editProductError($name, $price, $type, $pieces, $description);
+    $data = array($name, $price, $type, $pieces, $weight, $measurement, $description);
+    $error = editProductError($name, $price, $type, $weight, $pieces, $description);
 
     if(empty($_FILES['file']['name'])){
         $error[] = "Снимката е задължителна";
@@ -29,7 +33,7 @@ if($_POST){
         $image = $_FILES['file'];
         $path = "../../../Pictures/Products/";
         addPicture($image,$path);
-        addProduct($name,$price,$type,$pieces,$description,$image);
+        addProduct($name,$price,$type, $weight, $measurement,$pieces,$description,$image);
 
         header("Location: ../showProducts.php"); 
     }else{

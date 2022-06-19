@@ -1,6 +1,6 @@
 body {
     margin:0;
-    background: url('../Pictures/Login/Shop Cake.jpg') no-repeat fixed center;
+    background: url('../Pictures/Login/1.png') no-repeat fixed center;
     background-size: cover;
 }
 
@@ -9,7 +9,7 @@ h1{
   font-size: 4em;
   text-align: center;
   font-style: oblique;
-  color: rgb(240, 240, 176);
+  color: black;
   font-weight: bolder;
 }
 

@@ -1,5 +1,5 @@
 <?php
-    function editProductError($name, $price, $type, $pieces, $description){
+    function editProductError($name, $price, $type, $weight, $pieces, $description){
         $errors = array();
 
         if(empty($name)){
@@ -16,6 +16,10 @@
             $errors[] = "Типът е задължителен";
         }
 
+        if(empty($weight)){
+            $register_errors[] = "Грамажът е задължителен"; 
+        }
+
         if(empty($pieces)){
             $errors[] = "Парчетата са задължителни";
         }else if(!preg_match("/[0-9]+/", $pieces)){
@@ -23,7 +27,7 @@
         }
 
         if(empty($description)){
-            $description = null;
+            $errors[] = "Описанието е задължително";
         }
 
         return $errors;
@@ -49,7 +53,7 @@
             $register_errors[] = "Паролата е задължителна."; 
         }else if (strlen($password) < 8) {
             $register_errors[] = "Паролата трябва да е поне 8 символа";
-        }else if ( ! preg_match( "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@№$%€§*-]{8,}$/", $password) ) {
+        }else if ( ! preg_match( "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%^&*()_+{}:<>?]{8,}$/", $password) ) {
             $register_errors[] = "Паролата трябва да има поне една главна и малка буква.";
         }else if($password != $psw_repeat){
             $register_errors[] = "Паролата и потвърждаването й не съвпадат.";

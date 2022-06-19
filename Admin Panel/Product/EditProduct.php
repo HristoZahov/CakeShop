@@ -11,6 +11,7 @@
     <?php
         include_once '../../PHPUtilities/Product.php';
         include_once '../../PHPUtilities/Type.php';
+        include_once '../../PHPUtilities/Utilities.php';
         session_start();
 
         $id = $_GET['id'];
@@ -33,10 +34,10 @@
     ?>
     <form id="form" action="Procces/edit.php" method="post" enctype="multipart/form-data">
         <label for="name">Име</label><br>
-        <input type="text" name="name" id="name" value="<?php echo $data[0]['Name']?>"><br>
+        <input type="text" name="name" id="name" value="<?php echo $data['Name']?>"><br>
         
         <label for="price">Цена</label><br>
-        <input type="text" name="price" id="price" value="<?php echo $data[0]['Price']?>"><br>
+        <input type="text" name="price" id="price" value="<?php echo $data['Price']?>"><br>
 
         <label for="type">Тип</label><br>
         <select id="type" name="type">
@@ -44,20 +45,27 @@
             <?php
             foreach ($types as $key => $value) {
             ?>
-            <option <?php if($data[0]['Type'] == $value['Type']){echo "selected";} ?> value="<?php echo $value['Type']; ?>"><?php echo $value['Type']; ?></option>
+            <option <?php if($data['Type'] == $value['Type']){echo "selected";} ?> value="<?php echo $value['Type']; ?>"><?php echo $value['Type']; ?></option>
             <?php
             }
             ?>
         </select><br>
 
         <label for="pieces">Парчета</label><br>
-        <input type="number" name="pieces" id="pieces" value="<?php echo $data[0]['Pieces']?>"><br>
+        <input type="number" name="pieces" id="pieces" value="<?php echo $data['Pieces']?>"><br>
+
+        <label for="weight">Грамаж</label><br>
+        <input type="number" name="weight" step="any" id="weight" value="<?php echo weightFilter($data['Weight']) ?>">
+        <select id="measurement" name="measurement">
+            <option <?php if($data['Measurement'] == "kg"){echo "selected";} ?> value="kg">кг</option>
+            <option <?php if($data['Measurement'] == "g"){echo "selected";} ?> value="g">гр</option>
+        </select><br>
 
         <label for="description">Описание</label><br>
-        <textarea rows="4" cols="50" id="description" name="description" form="form"><?php echo $data[0]['Description']?></textarea><br>
+        <textarea rows="4" cols="50" id="description" name="description" form="form"><?php echo $data['Description']?></textarea><br>
         
         <label for="newPicture">Снимка:</label><br>
-        <img id="picture" src="../../Pictures/Products/<?php echo $data[0]['Picture']; ?>" alt="picture" width="400px" height="300px"><br>
+        <img id="picture" src="../../Pictures/Products/<?php echo $data['Picture']; ?>" alt="picture" width="400px" height="300px"><br>
 
         <input type="file" id="file" name="file" accept="image/*"><br><br>
 

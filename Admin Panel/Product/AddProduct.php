@@ -45,8 +45,15 @@
         <label for="pieces">Парчета</label><br>
         <input type="number" name="pieces" id="pieces" value="<?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][3];} ?>"><br>
 
+        <label for="weight">Грамаж</label><br>
+        <input type="number" name="weight" id="weight" value="<?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][4];} ?>">
+        <select id="measurement" name="measurement">
+            <option <?php if(isset($_SESSION['add_data']) && $_SESSION['add_data'][5] == "kg"){echo "selected";} ?> value="kg">кг</option>
+            <option <?php if(isset($_SESSION['add_data']) && $_SESSION['add_data'][5] == "g"){echo "selected";} ?> value="g">гр</option>
+        </select><br>
+
         <label for="description">Описание</label><br>
-        <textarea rows="4" cols="50" id="description" name="description" form="form"><?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][4];} ?></textarea><br>
+        <textarea rows="4" cols="50" id="description" name="description" form="form"><?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][6];} ?></textarea><br>
         
         <label for="newPicture">Снимка:</label><br>
         <img id="picture" src="" alt="picture" width="400px" height="300px" style="display:none;"><br>

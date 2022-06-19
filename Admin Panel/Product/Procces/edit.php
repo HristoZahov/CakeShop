@@ -13,15 +13,19 @@
         $price = $_POST["price"];
         $type = $_POST["type"];
         $pieces = $_POST["pieces"];
+        $weight = $_POST["weight"];
+        $measurement = $_POST["measurement"];
         $description = $_POST["description"];
 
         $name = htmlspecialchars( $name, ENT_QUOTES );
         $price = htmlspecialchars($price, ENT_QUOTES);
         $type = htmlspecialchars($type, ENT_QUOTES);
         $pieces = htmlspecialchars($pieces, ENT_QUOTES);
+        $weight = htmlspecialchars($weight, ENT_QUOTES);
+        $measurement = htmlspecialchars($measurement, ENT_QUOTES);
         $description = htmlspecialchars($description, ENT_QUOTES);
 
-        $error = editProductError($name, $price, $type, $pieces, $description);
+        $error = editProductError($name, $price, $type, $weight, $pieces, $description);
 
         if(count($error) == 0){
             $conn = openConnection();
@@ -32,9 +36,9 @@
                 $image = $_FILES['file'];
 
                 addPicture($image,$path);
-                editProductWithPicture($name,$price,$type,$pieces,$description,$image,$id);
+                editProductWithPicture($name,$price,$type,$pieces,$weight,$measurement,$description,$image,$id);
             }else{
-                editProductWithOutPicture($name,$price,$type,$pieces,$description,$id);
+                editProductWithOutPicture($name,$price,$type,$pieces,$weight,$measurement,$description,$id);
             }
 
             $conn = null;

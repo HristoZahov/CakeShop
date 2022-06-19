@@ -2,15 +2,15 @@
     include_once 'Connection.php';
     include_once 'Type.php';
 
-    function editProductWithPicture($name,$price,$type,$pieces,$description,$image,$id){
+    function editProductWithPicture($name,$price,$type,$pieces,$weight,$measurement,$description,$image,$id){
         try{
             $conn = openConnection();
 
             $type = getTypeId($type);
-            $sql = "UPDATE product SET Name = ?, Price = ?, Type_Id = ?, Pieces = ?, Description = ?, Picture = ? WHERE id = ?";
+            $sql = "UPDATE product SET Name = ?, Price = ?, Type_Id = ?, Pieces = ?, Weight = ?, Measurement = ?, Description = ?, Picture = ? WHERE id = ?";
 
             $stmt= $conn->prepare($sql);
-            $stmt->execute([$name,$price,$type,$pieces,$description,$image['name'],$id]);
+            $stmt->execute([$name,$price,$type,$pieces,$weight,$measurement,$description,$image['name'],$id]);
         }catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }finally{
@@ -18,15 +18,15 @@
         }
     }
 
-    function editProductWithOutPicture($name,$price,$type,$pieces,$description,$id){
+    function editProductWithOutPicture($name,$price,$type,$pieces,$weight,$measurement,$description,$id){
         try{
             $conn = openConnection();
 
             $type = getTypeId($type);
-            $sql = "UPDATE product SET Name = ?, Price = ?, Type_Id = ?, Pieces = ?, Description = ? WHERE id = ?";
+            $sql = "UPDATE product SET Name = ?, Price = ?, Type_Id = ?, Pieces = ?, Weight = ?, Measurement = ?, Description = ? WHERE id = ?";
 
             $stmt= $conn->prepare($sql);
-            $stmt->execute([$name,$price,$type,$pieces,$description,$id]);
+            $stmt->execute([$name,$price,$type,$pieces,$weight,$measurement,$description,$id]);
         }catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }finally{
@@ -34,15 +34,15 @@
         }
     }
 
-    function addProduct($name,$price,$type,$pieces,$description,$image){
+    function addProduct($name,$price,$type,$weight,$measurement,$pieces,$description,$image){
         try{
             $conn = openConnection();
 
             $type = getTypeId($type);
-            $sql = "INSERT INTO product (Name, Price, Type_Id, Pieces, Description, Picture) VALUES (?,?,?,?,?,?);";
+            $sql = "INSERT INTO product (Name, Price, Type_Id, Weight, Measurement, Pieces, Description, Picture) VALUES (?,?,?,?,?,?,?,?);";
 
             $stmt= $conn->prepare($sql);
-            $stmt->execute([$name,$price,$type,$pieces,$description,$image['name']]);
+            $stmt->execute([$name,$price,$type,$weight,$measurement,$pieces,$description,$image['name']]);
         }catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }finally{
@@ -68,7 +68,7 @@
     function getAllProducts(){
         $conn = openConnection();
 
-        $PDOStatement = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Pieces,p.Description,p.Picture 
+        $PDOStatement = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Weight,p.Measurement,p.Pieces,p.Description,p.Picture 
         FROM cakeshopdb.product AS p LEFT JOIN cakeshopdb.type AS t
         ON p.Type_Id = t.Id;");
         $PDOStatement->execute();
@@ -82,7 +82,7 @@
     function getOneProduct($id){
         $conn = openConnection();
       
-        $stmt = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Pieces,p.Description,p.Picture 
+        $stmt = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Weight,p.Measurement,p.Pieces,p.Description,p.Picture 
         FROM cakeshopdb.product AS p LEFT JOIN cakeshopdb.type AS t
         ON p.Type_Id = t.Id 
         WHERE p.Id = ?;");
