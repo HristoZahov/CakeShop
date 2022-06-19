@@ -45,7 +45,7 @@
         <label for="pieces">Парчета</label><br>
         <input type="number" name="pieces" id="pieces" value="<?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][3];} ?>"><br>
 
-        <label for="weight">Грамаж</label><br>
+        <label for="weight">Тегло</label><br>
         <input type="number" name="weight" id="weight" value="<?php if(isset($_SESSION['add_data'])){echo $_SESSION['add_data'][4];} ?>">
         <select id="measurement" name="measurement">
             <option <?php if(isset($_SESSION['add_data']) && $_SESSION['add_data'][5] == "kg"){echo "selected";} ?> value="kg">кг</option>

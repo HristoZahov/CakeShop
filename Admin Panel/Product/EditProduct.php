@@ -54,7 +54,7 @@
         <label for="pieces">Парчета</label><br>
         <input type="number" name="pieces" id="pieces" value="<?php echo $data['Pieces']?>"><br>
 
-        <label for="weight">Грамаж</label><br>
+        <label for="weight">Тегло</label><br>
         <input type="number" name="weight" step="any" id="weight" value="<?php echo weightFilter($data['Weight']) ?>">
         <select id="measurement" name="measurement">
             <option <?php if($data['Measurement'] == "kg"){echo "selected";} ?> value="kg">кг</option>

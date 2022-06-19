@@ -27,7 +27,7 @@
                         <h3><?php echo $value['Name'] ?></h3>
                         <p>Тип: <?php echo $value['Type'] ?></p>
                         <?php if($value['Type'] == "Парче"){?>
-                        <p>Грамаж: <?php echo weightFilter($value['Weight']); if($value['Measurement'] == "kg"){ echo " кг";}else{ echo " гр";}?></p>
+                        <p>Тегло: <?php echo weightFilter($value['Weight']); if($value['Measurement'] == "kg"){ echo " кг";}else{ echo " гр";}?></p>
                         <?php
                         }else if($value['Type'] == "Торта"){
                         ?>
