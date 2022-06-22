@@ -1,93 +1,256 @@
-body {
-  margin:0;
-  background: url('../Pictures/Login/Shop Cake.jpg') no-repeat fixed center;
-  background-size: cover;
+/* Product */
+.contain{
+  box-sizing: content-box;
+  display: inline-block;
+  border: 0.4em solid black;
+  margin: 1em;
+  border-radius: 10%;
+  background-color: #f96a58;
 }
 
-.products{
-  text-align: center;
+.contain:hover{
+  border-color: #f3a4a7;
 }
 
-.intro{
-  display: block;
-  font-size: 4em;
-  text-align: center;
-  font-style: oblique;
-  color: rgb(240, 240, 176);
-  font-weight: bolder;
+.contain p{
+  margin: 0;
 }
 
-a{
+/* Head */
+.text-head{
+  color: white;
+  text-shadow: 4px 4px 7px black;
+  font-family: Brush Script MT;
+  font-size: 5em;
+}
+
+header a{
   text-decoration: none;
 }
 
-.conteiner{
+/* Background */
+body{
+  background: url("../Pictures/Login/Shop Cake.jpg");
+  background-size: contain;
+}
+
+.links{
+  width: 100%;
+  background-color: #f96a58;
   display: inline-block;
-  vertical-align: middle;
-  box-sizing: content-box;
-  border: 0.4em solid lightslategray;
-  margin: 0 2em 2em 2em;
-  border-radius: 2em;
-  background-color: rgb(221, 167, 167);
 }
 
-.conteiner img{
-  display: inline-block;
-  vertical-align: middle;
-  margin: 1.8em 0px 1.8em 2em;
-  width: 55%;
-  height: auto;
-
-  border-radius: 1.25em;
-}
-
-.conteiner:hover{
-  border-color: brown;
-}
-
-.info{
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 1.8em;
-}
-
-.info h2{
-  color: brown;
+/* Buttons */
+.button{
+  width: 3em;
+  border-radius: 20%;
+  background: none; 
+  border: none;
+  padding: 0.5em;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-size: 270%;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button i{
+  font-size: xx-large;
+}
+
+.links a > img, .links button > img{
+  width: 100%;
+}
+
+.button > a,.button > a:link,.button > a:visited{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+}
+
+.button:hover {
+  background-color: #d51023;
+}
+
+/* Navigation */
+.sticky{
+  position: sticky; top: 0;
+}
+
+/* Filters */
+#filter{
+  display: none;
+  background: #d51023;
+  padding: 1em;
+}
+
+#filter a{
+  text-decoration: none;
+  color:white;
+  font-size: x-large;
+}
+
+#filter a:hover{
+  color: black;
+}
+
+#search{
+  display: none;
+  background: #d51023;
+  padding: 0.3em;
+}
+
+/* Info */
+.info{
+  box-sizing: content-box;
+  display: inline-block;
+  border: 0.4em solid black;
+  margin: 1em;
+  border-radius: 10%;
+  background-color: gray;
+  padding: 1em;
 }
 
 .info p{
-  color: rgb(39, 28, 28);
-  font-size: 250%;
-  font-weight: bold;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-style: italic;
+  margin: 10px;
 }
 
-@media only screen and (min-width: 18.75em) and (max-width: 48em) {
-  .conteiner{
-    display: inline-block;
-    vertical-align: middle;
-    width:40%;
+/* ---------------- */
+.description{
+  box-sizing: content-box;
+  display: inline-block;
+  border: 0.4em solid black;
+  margin: 1em;
+  border-radius: 10%;
+  background-color: #f96a58;
+  font-size: larger;
+}
+
+.description p{
+  margin: 0;
+}
+
+.price form p, .price form button{
+  display: inline-block;
+}
+
+.price button{
+  margin-top: 2em;
+}
+
+.price button p{
+  width: 10em;
+}
+
+.price button p img{
+  width: 2em;
+  margin: 0.2em;
+  height: 2em;
+}
+
+.w-2-5{
+  width: 2.5em;
+}
+
+.p-5{
+  padding: 0 5%;
+}
+
+.h2-header{
+  font-size: 4em;
+  margin-bottom: 1em;
+}
+
+.bot-line > p{
+  border-bottom: solid;
+}
+
+@media (max-width: 865px){
+  .center{
+    text-align: center;
+  }
+  .contain img{
+    width: 300px;
+    height: 200px;
+    border-radius: 10%;
+  }
+
+  .product-img{
+    width: 100%;
+  }
+
+  #search{
+    width: 100%;
+  }
+
+  #filter{
+    width: 100%;
+    text-align: center;
+  }
+
+  #search input{
+    width: 89%;
+  }
+
+  #search button{
+    width: 9%;
+  }
+
+  .contain,.description{
+    padding: 3%;
+  }
+
+  .price{
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .price button p{
+    width: 7em;
+  }
+  .product-img{
+    width: 90%;
+    border-radius: 10%;
+    height: 35em;
   }
 }
 
-@media only screen and (min-width: 48em) and (max-width: 65em) {
-  .conteiner{
-    display: inline-block;
-    vertical-align: middle;
-    width:40%;
+@media (min-width: 865px){
+  .contain img{
+    width: 350px;
+    height: 250px;
+    border-radius: 10%;
   }
-} 
+  #search{
+    width: 300px;
+    margin: 0 5.5%;
+  }
+  #filter{
+    margin: 0 3%;
+  }
 
-@media only screen and (min-width: 65em) {
-  .conteiner{
-    display: inline-block;
-    vertical-align: middle;
-    width:40%;
+  .links{
+    padding: 0 3%;
   }
-} 
+
+  #search input{
+    width: 87%;
+  }
+
+  .contain,.description{
+    padding: 1.5%;
+  }
+
+  .price{
+    position: static;
+    float: right;
+  }
+  .product-img{
+    width: 48em;
+    border-radius: 10%;
+    height: 48em;
+  }
+}

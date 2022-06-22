@@ -25,7 +25,7 @@ h1{
 }
 
 .add:hover{
-    color: rgb(53, 126, 5);
+    color: rgb(228, 81, 81);
     font-size: 4.1em;
     text-shadow: rgb(156, 23, 23) 0.2em 0.3em 0.2em;
 }
@@ -65,28 +65,3 @@ table td a:hover{
     font-weight: bold;
 }
 
-@media only screen and (min-width: 18.75em) and (max-width: 48em) {
-    .col-1 {width: 11.4%;}
-    .col-2 {width: 22.8%;}
-    .col-3 {width: 34.2%;}
-    .col-4 {width: 45.6%;}
-    .col-5 {width: 57%;}
-    .col-6 {width: 79.8%;}
-    .col-7 {width: 91.2%;}
-  }
-  
-  @media only screen and (min-width: 48em) and (max-width: 65em) {
-    .conteiner{
-      display: inline-block;
-      vertical-align: middle;
-      width:40%;
-    }
-  } 
-  
-  @media only screen and (min-width: 65em) {
-    .conteiner{
-      display: inline-block;
-      vertical-align: middle;
-      width:40%;
-    }
-  } 

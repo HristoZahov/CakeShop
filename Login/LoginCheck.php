@@ -25,6 +25,7 @@ if($_POST){
             $data = $PDOStatement->fetchAll();
 
             if(!empty($data) && password_verify($password, $data[0]['Password'])){
+                $_SESSION['user'] = $data;
                 header("location: ../ShopPage/Shop.php");
             }else{
                 $login_errors[] = "Тези данни не съвпадат с нашите записи.";

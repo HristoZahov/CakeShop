@@ -1,6 +1,6 @@
 <?php
     function openConnection(){
-        $servername = "localhost:3310";
+        $servername = "localhost";
         $dbusername = "root";
         $database = "cakeshopdb";
         $dbPassword = "";

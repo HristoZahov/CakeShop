@@ -40,7 +40,7 @@
             <td><?php echo weightFilter($value['Weight']); if($value['Measurement'] == "kg"){ echo " кг";}else{ echo " гр";} ?></td>
             <td><?php echo $value['Pieces']; ?></td>
             <td><?php echo $value['Description']; ?></td>
-            <td><img src="../../Pictures/Products/<?php echo $value['Picture']; ?>" alt="picture" width="100%"></td>
+            <td><img src="../../Pictures/Products/<?php echo $value['Picture']; ?>" alt="picture" width="300px" height="200px"></td>
             <td><a href="Procces/delete.php?id=<?php echo $value['Id']; ?>">Delete</a></td>
             <td><a href="EditProduct.php?id=<?php echo $value['Id']; ?>">Edit</a></td>
           </tr>

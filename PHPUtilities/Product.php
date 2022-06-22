@@ -79,6 +79,36 @@
         return $data;
     }
 
+    function getFilterProducts($type){
+        $conn = openConnection();
+
+        $PDOStatement = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Weight,p.Measurement,p.Pieces,p.Description,p.Picture 
+        FROM cakeshopdb.product AS p LEFT JOIN cakeshopdb.type AS t
+        ON p.Type_Id = t.Id
+        Where t.Name = ?;");
+        $PDOStatement->execute([$type]);
+
+        $PDOStatement->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $PDOStatement->fetchAll();
+
+        return $data;
+    }
+
+    function getSearchProducts($search){
+        $conn = openConnection();
+
+        $PDOStatement = $conn->prepare("SELECT p.Id,p.Name,p.Price,t.Name AS Type,p.Weight,p.Measurement,p.Pieces,p.Description,p.Picture 
+        FROM cakeshopdb.product AS p LEFT JOIN cakeshopdb.type AS t
+        ON p.Type_Id = t.Id
+        Where p.Name like ? OR p.Description = ?;");
+        $PDOStatement->execute(["%".$search."%","%".$search."%"]);
+
+        $PDOStatement->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $PDOStatement->fetchAll();
+
+        return $data;
+    }
+
     function getOneProduct($id){
         $conn = openConnection();
       
