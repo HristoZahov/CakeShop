@@ -65,3 +65,13 @@ table td a:hover{
     font-weight: bold;
 }
 
+.text-head{
+    color: white;
+    text-shadow: 4px 4px 7px black;
+    font-family: Brush Script MT;
+    font-size: 5em;
+  }
+  
+  header a{
+    text-decoration: none;
+  }

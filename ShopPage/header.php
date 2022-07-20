@@ -10,7 +10,7 @@
         <button class="button float-end"><a href=""><img src="../Pictures/Icons/Cart.png" alt=""></a></button>
         <button class="button float-end"><a href=""><i class="fa-solid fa-address-book"></i></a></button>
     </div>
-    <div style="margin-top: -6px">
+    <div> <!-- style="margin-top: -6px" -->
         <div id="filter">
             <?php
             $types = getAllTypes();

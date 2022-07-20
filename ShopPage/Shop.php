@@ -14,8 +14,7 @@
         include_once "../PHPUtilities/Product.php";
         include_once "../PHPUtilities/Type.php";
         include_once "../PHPUtilities/Utilities.php";
-        if(isset($_SESSION['user'])){
-            require_once("header.php");
+        require_once("header.php");
     ?>
     <div class="d-flex justify-content-center flex-wrap">
     <?php 
@@ -54,10 +53,5 @@
         }
         ?>
     </div>
-    <?php
-    }else{
-        header("location: ../Login/Login.php");
-    }
-    ?>
 </body>
 </html>

@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel</title>
   <link rel="stylesheet" href="../../CSS/Admin.css?<?php echo time(); ?>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Продукти</h1>
+<header><a href="../../ShopPage/Shop.php"><h1 class="text-center text-head">Delight</h1></a></header>
   <a class="add" href="AddProduct.php">Добавяне</a>
   <table>
     <thead>
