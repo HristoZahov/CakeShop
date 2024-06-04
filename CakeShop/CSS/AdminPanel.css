@@ -1,0 +1,55 @@
+.not_visible{
+    display: none;
+}
+
+table,th,td{
+    border: 3px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.products,.orders,.users,.categories{
+    margin: 1em;
+}
+
+body{
+    background-image: url("../Pictures/Main/AdminPanel.png");
+    background-repeat: repeat;
+}
+
+ul{
+    padding: 0.5em  1em;
+    margin: 2em 0 0 2em;
+    background-color: pink;
+    border: 4px solid black;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.panel{
+    margin-top: 2em;
+}
+
+.exit:hover {
+    border-color: white;
+}
+
+.exit {
+    border: 3px solid black;
+    font-weight: 700;
+    border-radius: 1em;
+    background-color: cyan;
+    padding: 0 1em;
+    margin: 0.3em 0;
+}
+
+li{
+    font-weight: bolder;
+}
+
+li:hover{
+    color: white;
+}
+
+table{
+    background-color: pink;
+}

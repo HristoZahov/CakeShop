@@ -1,0 +1,174 @@
+body{
+    background-image: url("../Pictures/Main/Login Cake.jpg")!important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+/* Form style */
+.register form {
+    background-color: rgb(228, 55, 55);
+    padding: 0.5em 1em;
+    border: 5px solid black;
+    border-radius: 2em;
+    box-sizing: content-box;
+}
+
+.register h2 {
+    color: white;
+    font-weight: bold;
+    /* font-family:'Courier New', Courier, monospace; */
+}
+
+/* Style fields and buttons*/
+.register input[type=text],
+.register input[type=email],
+.register input[type=password],
+.register input[type=tel] {
+    border: 3px solid black;
+    border-radius: 1em;
+    padding-left: 1em;
+    width: 100%;
+    margin-bottom: 0.3em;
+}
+
+.register input[type=submit],
+.register input[type=button] {
+    border: 3px solid black;
+    font-weight: 700;
+    border-radius: 1em;
+    background-color: #709c01;
+    padding: 0 1em;
+    margin: 0.3em 0;
+}
+
+/* Style fields and buttons when Focused*/
+.register input[type=submit]:hover,
+.register input[type=button]:hover {
+    border-color: green;
+}
+
+.register input[type=text]:focus,
+.register input[type=email]:focus,
+.register input[type=password]:focus {
+    border-color: #709c01;
+    outline: none;
+}
+
+/* Errors */
+.error{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 1em;
+    margin-bottom: 0.3em;
+}
+
+.error p{
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Requirements for password */
+#requirements{
+    display: none; 
+    text-align: left;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 1em;
+    padding: 0.4em;
+    margin-bottom: 0.3em;
+}
+
+#requirements p{
+    color: red;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Password eye */
+.eye-position{
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+
+/* Computer media */
+@media (min-width: 1024px){
+    .register {
+        margin: 5em 0;
+    }    
+
+    .register form{
+        width: 23em;
+    }
+
+    .register input[type=submit] {
+        float: left;
+    }
+    .register input[type=button]{
+        float: right;
+    }
+}
+
+/* Tablet media */
+@media (max-width: 1024px) and (min-width: 768px){
+    .register {
+        margin: 5em 0;
+    }    
+
+    .register form{
+        width: 23em;
+        font-size: 1em;
+    }
+
+    .register h2{
+        font-size: 2em;
+    }
+
+    .register input[type=submit] {
+        float: left;
+    }
+    .register input[type=button]{
+        float: right;
+    }
+}
+
+/* Phone media */
+@media (max-width: 768px){
+    .register {
+        margin: 5em 0;
+    }    
+
+    .register form{
+        width: 85%;
+    }
+
+    .register h2{
+        font-size: 1.9em;
+    }
+
+    .register input[type=submit] {
+        float: left;
+    }
+    .register input[type=button]{
+        float: right;
+    }
+}
+
+@media (max-width: 520px){
+    .register {
+        margin: 3em 0;
+    }  
+
+    .register form{
+        width: 80%;
+    }
+    
+    .register input[type=submit],
+    .register input[type=button] {
+        float: none;
+    }
+}
+

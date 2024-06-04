@@ -1,0 +1,596 @@
+:root {
+    --dropcolor: rgb(228, 55, 55);
+    --dropTopMargin: 1.24em;
+}
+
+body{
+    background-image: url('../Pictures/Main/Shop Cake.jpg');
+    padding-bottom: 5em;
+}
+@font-face {
+    font-family: Brush Script MT;
+    src: url("Font/brush script mt kursiv.ttf");
+}
+
+/* ====================================== */
+/* Header */
+/* ====================================== */
+.text-head {
+    color: white;
+    text-shadow: 4px 4px 7px black;
+    font-family: Brush Script MT;
+}
+
+header > a {
+    text-decoration: none;
+}
+
+.nav{
+    z-index: 1;
+}
+
+/* ====================================== */
+/* Head buttons */
+/* ====================================== */
+.head-butons div > button,
+.head-butons > button {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0em 0.1em;
+    padding: 0em 0.4em 0.1em;
+    border-radius: 0.3em;
+    background-color: #f96a58;
+    border: none;
+    font-size: 1.5em;
+}
+
+.head-butons div > button:hover,
+.head-butons > button:hover {
+    background-color: var(--dropcolor)
+}
+
+/* ====================================== */
+/* Nav Background */
+/* ====================================== */
+.head-butons {
+    background-color: #f96a58;
+    padding: 0.4em 1em;
+    width: 95%;
+    margin: auto;
+    border-radius: 3em;
+    border: 4px solid black;
+}
+
+/* ====================================== */
+/* Triangle  */
+/* ====================================== */
+
+/* Black */
+.under-nav-div::before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -12px;
+    margin-left: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent black;
+}
+
+/* Red */
+.under-nav-div::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -9px;
+    margin-left: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent var(--dropcolor);
+}
+
+/* Posision */
+.search-phone form::before,
+.search-phone form::after {
+    left: 50%;
+}
+
+.type::before,
+.type::after{
+    left: 5m;
+}
+
+
+.user div::before,
+.user form::before,
+.user div::after,
+.user form::after,
+#basket::before,
+#basket::after {
+    right: 1.5em;
+}
+
+/* ====================================== */
+/* Category */
+/* ====================================== */
+
+/* Category list visabilyty */
+.type {
+    display: none;
+    margin-top: var(--dropTopMargin);
+    background-color: var(--dropcolor);
+    border: 3px solid black;
+    border-radius: 0.4em;
+}
+
+/* Category list style */
+.type li {
+    padding: 0.3em 1em;
+}
+
+li input,
+.user-menu ul li a,
+.menu li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: var(--dropcolor);
+    border: none;
+}
+
+.type input {
+    font-size: 1.5em;
+}
+
+/* Category list hover */
+.type li input:hover,
+.user-menu li a:hover,
+.menu li a:hover {
+    color: white;
+    text-shadow: 3px 3px 5px black;
+}
+
+/* ====================================== */
+/* SEARCH */
+/* ====================================== */
+
+/* Search field */
+.search-desk form input[type='text'],
+.search-phone form input[type='text'] {
+    border: 3px solid black;
+    border-radius: 0.9em 0em 0em 0.9em;
+    outline: none;
+    width: 90%;
+    padding: 0.1em 0em 0.1em 0.8em;
+    margin-right: 0;
+    height: 2.1em;
+}
+
+/* Search field focus*/
+.search-desk form input[type='text']:focus,
+.search-phone form input[type='text']:focus {
+    border-color: #f3a4a7;
+}
+
+/* Search button */
+.search-desk form button,
+.search-phone form button {
+    border: 3px solid black;
+    border-left: none;
+    border-radius: 0em 0.6em 0.6em 0em;
+    padding: 0.1em 0.4em;
+    background-color: white;
+    cursor: pointer;
+    height: 2.1em;
+}
+
+/* Menus styles */
+.under-nav-div {
+    background-color: var(--dropcolor);
+    border: 3px solid black;
+    margin-top: var(--dropTopMargin);
+    padding: 0.3em;
+    border-radius: 0.4em;
+    display: none;
+}
+
+.user-form {
+    margin-left: -13.4em;
+}
+
+.user-menu {
+    width: 13em;
+    margin-left: -9.3em;
+}
+
+.user-menu a,
+.menu a {
+    font-size: 1.2em;
+}
+
+.user-menu h5,
+.menu h5 {
+    color: white;
+    font-size: 1.5em;
+}
+
+/* Animation */
+.under-nav-div{
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+/* Style fields and buttons when Focused*/
+.user-form input[type=submit]:hover,
+.user-form input[type=button]:hover,
+.user-menu button:hover,
+.basket-btn:hover,
+.menu button:hover,
+.edit_user input[type="submit"]:hover,
+.cart:hover,
+.orders tr td button:hover {
+    border-color: green;
+}
+
+.user-form input[type=submit],
+.user-form input[type=button],
+.user-menu button,
+.basket-btn,
+.menu button,
+.edit_user input[type="submit"],
+.cart,
+.orders tr td button {
+    border: 3px solid black;
+    font-weight: 700;
+    border-radius: 1em;
+    background-color: #709c01;
+    padding: 0 1em;
+    margin: 0.3em 0;
+}
+
+.user-form input[type=text]:focus,
+.user-form input[type=email]:focus,
+.user-form input[type=password]:focus,
+.edit_user input[type=text]:focus,
+.edit_user input[type=email]:focus,
+.edit_user input[type=password]:focus {
+    border-color: #709c01;
+    outline: none;
+}
+
+/* Style fields and buttons*/
+.user-form input[type=text],
+.user-form input[type=email],
+.user-form input[type=password],
+.edit_user input[type=text],
+.edit_user input[type=email],
+.edit_user input[type=password] {
+    border: 3px solid black;
+    border-radius: 1em;
+    padding-left: 1em;
+    width: 100%;
+    margin-bottom: 0.3em;
+}
+
+/* User Name */
+.user-form h4 {
+    color: black;
+    font-weight: 500;
+}
+
+/* Basket */
+#basket p{
+    font-weight: 700;
+}
+
+.basket_product img{
+    width: 4em;
+    height: 3em;
+    border-radius: 0.5em;
+}
+
+.basket_product td select{
+    width: 3.8em;
+}
+
+.basket_product i{
+    font-size: 0.8em;
+}
+
+.basket_product td button{
+    padding: 0.1em 0.6em 0.2em;
+}
+
+.basket_products{
+    max-height: 10em;
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    border: 3px solid black;
+    padding: 0.2em;
+    border-radius: 1em;
+    overflow-y: auto;
+}
+
+.basket_products table{
+    width: 100%;
+}
+
+/* Password eye */
+.eye-position {
+    position: absolute;
+    margin-left: -33px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.menu,.edit_user,.orders{
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    background-color: rgb(228, 55, 55);
+    padding: 0.5em 1em;
+    text-align: center;
+    height: fit-content;
+    overflow-x: auto;
+}
+
+.edit_user,.orders{
+    color: black;
+    font-weight: bolder;
+}
+
+.edit_user_div,.see_orders{
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.orders a,.orders a:hover{
+    color: black;
+}
+
+.not_items{
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 1.3em;
+    text-shadow: 3px 3px 5px black;
+}
+
+.see_orders td{
+    padding: 0 1em;
+}
+
+/* ====================================== */
+/* Meida */
+/* ====================================== */
+
+/* Computer media */
+@media (min-width: 1024px) {
+    /* Header size */
+    .text-head {
+        font-size: 6em;
+    }
+
+    /* Size buttons */
+    nav div > button {
+        font-size: 1.7em;
+    }
+
+    /* Phone search button*/
+    .search-phone {
+        display: none;
+    }
+
+    /* Serch desk visablity and position */
+    .search-desk {
+        width: 32%;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .search-desk-form {
+        top: 0.25em;
+    }
+
+    /* Category btn visabilty*/
+    #category-btn i {
+        display: none;
+    }
+
+    #category-btn h4 {
+        display: inline;
+    }
+
+    /* Category position */
+    .type {
+        margin-left: 0.7em;
+    }
+
+    #basket{
+        width: 24em;
+        margin-left:-20em;
+    }
+
+    .basket_product td:nth-child(3){
+        width: 5em;
+    }
+}
+
+/* Tablet media */
+@media (max-width: 1024px) and (min-width: 768px) {
+
+    /* Header size */
+    .text-head {
+        font-size: 4em;
+    }
+
+    /* Phone search button display */
+    .search-phone {
+        display: none;
+    }
+
+    /* Serch desk visablity and position */
+    .search-desk {
+        width: 45%;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .search-desk-form {
+        top: 0.2em;
+    }
+
+    /* Category btn */
+    #category-btn i {
+        display: none;
+    }
+
+    #category-btn h4 {
+        display: inline;
+    }
+
+    /* Category div */
+    .type {
+        margin-left: 0.7em;
+    }
+
+    #basket{
+        width: 24em;
+        margin-left:-20em;
+    }
+
+    .basket_product td:nth-child(3){
+        width: 5em;
+    }
+}
+
+/* Phone media */
+@media (max-width: 768px) {
+    :root {
+        --dropTopMargin: 1.44em;
+    }
+    /* Header size */
+    .text-head {
+        font-size: 4em;
+    }
+    
+    /* Size buttons */
+    .head-butons {
+        padding: 0.4em;
+        font-size: 0.8em;
+    }
+
+    .basket_products{
+        font-size: 1em;
+    }
+
+    /* Center category,search and login */
+    .under-nav-div {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .type li a {
+        font-size: 1.3em;
+    }
+
+    /* Desk serach visabilty off */
+    .search-desk {
+        display: none;
+    }
+
+    .search-phone {
+        display: inline;
+    }
+
+    /* Category btn */
+    #category-btn i {
+        display: inline;
+    }
+
+    #category-btn h4 {
+        display: none;
+    }
+
+    /* Center login triangle */
+    .under-nav-div::before,
+    .under-nav-div::after {
+        left: 50%;
+    }
+
+    .basket{
+        width: 90%;
+    }
+}
+
+/* Galaxy fold */
+@media (max-width: 410px) {
+    /* Header size */
+    .text-head {
+        font-size: 4em;
+    }
+
+    /* Size buttons */
+    .head-butons {
+        padding: 0.4em;
+    }
+
+    /* Center category,search and login */
+    .under-nav-div{
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 87%;
+    }
+
+
+    /* Desk serach visabilty off */
+    .search-desk {
+        display: none;
+    }
+
+    /* Category btn */
+    #category-btn i {
+        display: inline;
+    }
+
+    #category-btn h4 {
+        display: none;
+    }
+
+    /* Center login triangle */
+    .under-nav-div::after,
+    .under-nav-div::before{
+        left: 50%;
+    }
+
+    .basket_products{
+        font-size: 0.8em;
+    }
+
+    .basket{
+        width: 90%;
+    }
+}

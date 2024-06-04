@@ -1,0 +1,42 @@
+.basket{
+    text-align: center;
+    margin: 0 auto;
+    max-width: 35em;
+    margin-top: 2em;
+}
+
+.basket img{
+    width: 100px;
+    border-radius: 0.2em;
+}
+
+.basket div{
+    background-color: rgb(228, 55, 55);
+    padding: 0.2em 1em;
+    border-radius: 1em;
+    border: 4px solid black;
+    border-collapse: separate;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.basket h3{
+    color: white;
+}
+
+.basket textarea{
+    width: 100%;
+    resize: none;
+}
+
+.mk_order td:first-child{
+    width: 1em;
+}
+
+.basket a,.basket a:hover{
+    color: black;
+}
+
+.b-table tfoot tr td{
+    font-weight: bolder;
+}
