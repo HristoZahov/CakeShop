@@ -5,12 +5,12 @@
     <div class="links text-center">
         <button id="lines" class="button float-start"><i class="fa-solid fa-bars"></i></button>
         <button id="btn-search" class="button float-start"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="button" <?php if($_SESSION['user'][0]['Privileges'] == 0){echo "hidden";}?>><a href="../Admin Panel/Product/ShowProducts.php"><i class="fa-solid fa-screwdriver-wrench"></i></a></button>
+        <button class="button" <?php if(isset($_SESSION['user'])){if($_SESSION['user'][0]['Privileges'] == 0){echo "hidden";}}else{echo "hidden";}?>><a href="../Admin Panel/Product/ShowProducts.php"><i class="fa-solid fa-screwdriver-wrench"></i></a></button>
         <button class="button float-end"><a href="../Login/Login.php"><i class="fa-solid fa-user"></a></i></button>
         <button class="button float-end"><a href=""><img src="../Pictures/Icons/Cart.png" alt=""></a></button>
         <button class="button float-end"><a href=""><i class="fa-solid fa-address-book"></i></a></button>
     </div>
-    <div> <!-- style="margin-top: -6px" -->
+    <div style="margin-top: -6px"> <!-- style="margin-top: -6px" -->
         <div id="filter">
             <?php
             $types = getAllTypes();

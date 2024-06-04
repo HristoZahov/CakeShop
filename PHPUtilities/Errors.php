@@ -54,7 +54,7 @@
         }else if (strlen($password) < 8) {
             $register_errors[] = "Паролата трябва да е поне 8 символа";
         }else if ( ! preg_match( "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#$%^&*()_+{}:<>?]{8,}$/", $password) ) {
-            $register_errors[] = "Паролата трябва да има поне една главна и малка буква.";
+            $register_errors[] = "Паролата трябва да има поне една главна, малка буква и едно число.";
         }else if($password != $psw_repeat){
             $register_errors[] = "Паролата и потвърждаването й не съвпадат.";
         }

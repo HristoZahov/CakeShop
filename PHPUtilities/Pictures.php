@@ -27,7 +27,7 @@
     }
 
     function addPicture($image,$path){
-        $picture = $image['name'];
+        // $picture = $image['name'];
         move_uploaded_file($image['tmp_name'],$path.$image['name']);
     }
 

@@ -1,7 +1,7 @@
 <?php
-    if(true){
+    // if(true){
         
-    }else{
-        header("Location: ../ShowTypes.php");
-    }
+    // }else{
+    //     header("Location: ../ShowTypes.php");
+    // }
 ?>

@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+        session_start();
         include_once '../PHPUtilities/Product.php';
         include_once "../PHPUtilities/Utilities.php";
         require_once("header.php");
